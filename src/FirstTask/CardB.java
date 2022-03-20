@@ -2,7 +2,7 @@ package FirstTask;
 
 public class CardB {
     //список с мастями карт
-    protected String[] suits = new String[] {"diamonds", "clubs", "hearts", "spades"};
+    protected static String[] suits = {"diamonds", "clubs", "hearts", "spades"};
     public Integer rank;
     public String suit;
 
@@ -17,21 +17,24 @@ public class CardB {
         for (String cardSuit: suits) {
             if (cardSuit.contains(suit)) {
                 this.suit = suit;
+                this.rank = rank;
                 break;
             }
             else {
-                System.out.println("You entered wrong card`s suit \n");
-                break;
+                continue;
             }
         }
-        if(rank < 13){
-            this.rank = rank;
+        if(this.suit == null){
+            System.out.println("You entered wrong card`s suit \n");
         }
-        else {
-            System.out.println("You entered wrong card`s rank \n");
         }
+//        if(rank < 13){
+//            this.rank = rank;
+//        }
+//        else {
+//            System.out.println("You entered wrong card`s rank \n");
+//        }
 
-    }
 
     //метод для вывода информации о созданной карте (при условии, что карта создана)
     void showCard() {

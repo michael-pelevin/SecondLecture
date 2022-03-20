@@ -22,7 +22,7 @@ public class FirstTask {
         card3.rank = 8;
         System.out.printf("card3 rank: %s, suit: %s \n", card3.rank, card3.suit);
 
-        CardB card4 = new CardB(14, "diamonds");
+        CardB card4 = new CardB(15, "diamonds");
         card4.showCard();
 
         //c
@@ -33,6 +33,7 @@ public class FirstTask {
         card6.showCard();
 
         CardC card7 = new CardC("diamonds");
+        card7.showCard();
         System.out.printf("card7 rank: %s, suit: %s \n", card7.rank, card7.suit);
 
     }

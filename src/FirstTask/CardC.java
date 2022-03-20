@@ -3,13 +3,7 @@ import java.util.*;
 
 public class CardC extends CardB {
     //список всех достоинств для вывода в читабельном виде
-    private String[] ranks = new String[] {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
-
-//    Map<String, Integer> maxRanks = new HashMap<String, Integer>();
-//    maxRanks.put("daimonds", 0);
-//    maxRanks.put("clubs", 0);
-//    maxRanks.put("hearts", 0);
-//    maxRanks.put("spades", 0);
+    private String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
 
     //переменные для подсчета карт
     private static Integer maxRankDiamonds = 0;
@@ -30,36 +24,36 @@ public class CardC extends CardB {
             if (cardSuit.contains(suit)) {
                 switch (suit){
                     case "diamonds":
-                        if(maxRankDiamonds < 13){
-                            maxRankDiamonds++;
+                        if(maxRankDiamonds >=0 && maxRankDiamonds < 13){
                             this.rank = maxRankDiamonds;
+                            maxRankDiamonds++;
                         }
                         else{
                             System.out.printf("Card`s suit %s finished \n", suit);
                         }
                         break;
                     case "clubs":
-                        if(maxRankClubs < 13){
-                            maxRankClubs +=1;
+                        if(maxRankDiamonds >=0 && maxRankDiamonds < 13){
                             this.rank = maxRankClubs;
+                            maxRankClubs++;
                         }
                         else{
                             System.out.printf("Card`s suit %s finished \n", suit);
                         }
                         break;
                     case "hearts":
-                        if(maxRankHearts < 13){
-                            maxRankHearts +=1;
+                        if(maxRankDiamonds >=0 && maxRankDiamonds < 13){
                             this.rank = maxRankHearts;
+                            maxRankHearts++;
                         }
                         else{
                             System.out.printf("Card`s suit %s finished \n", suit);
                         }
                         break;
                     case "spades":
-                        if(maxRankSpades < 13){
-                            maxRankSpades +=1;
+                        if(maxRankDiamonds >=0 && maxRankDiamonds < 13){
                             this.rank = maxRankSpades;
+                            maxRankSpades++;
                         }
                         else{
                             System.out.printf("Card`s suit %s finished \n", suit);
@@ -82,8 +76,8 @@ public class CardC extends CardB {
     //метод вывода созданной карты в читабельном виде
     @Override
     void showCard() {
-        if (rank != null && suit != null){
-            System.out.printf("CardC rank`s number is %s, rank is %s, suit is %s \n", this.rank, this.ranks[this.rank-1], this.suit);
+        if (rank != null && suit != null && rank >=0 && rank < 13){
+            System.out.printf("CardC rank`s number is %s, rank is %s, suit is %s \n", this.rank, this.ranks[this.rank], this.suit);
         }
         else {
             System.out.printf("CardC not created \n");
