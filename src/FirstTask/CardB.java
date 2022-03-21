@@ -2,7 +2,7 @@ package FirstTask;
 
 public class CardB {
     //список с мастями карт
-    protected static String[] suits = {"diamonds", "clubs", "hearts", "spades"};
+    protected static String[] suits = {"clubs", "diamonds", "spades", "hearts"};
     public Integer rank;
     public String suit;
 
