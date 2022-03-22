@@ -62,7 +62,6 @@ public class Deck{
 
 
     static String ejectingTheCard(String Card) {
-
         //если карта корректна, то проверяем наличие ее в колоде, затем удаляем ее из колоды
         if (checkCard(Card)) {
             Integer cardIndex = deck.indexOf(Card);

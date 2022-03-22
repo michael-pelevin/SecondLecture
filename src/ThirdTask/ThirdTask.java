@@ -33,11 +33,12 @@ public class ThirdTask {
 
         Collections.sort(cards);
 
-        System.out.print("Sorted");
+        System.out.print("Sorted\n");
         for(Card card : cards){
             System.out.println(card.rank + " "
                     + card.suit);
         }
+
 
 //        System.out.print(Deck.showDeck());
 //

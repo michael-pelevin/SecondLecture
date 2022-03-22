@@ -19,7 +19,7 @@ public class Card implements Comparable<Card> {
         Integer suitIndexToCompare = getSuitIndex(card.suit);
 
 
-        if (currentSuitIndex == suitIndexToCompare) {
+        if (currentSuitIndex == suitIndexToCompare || this.suit.equals("Red") || card.suit.equals("Red") || card.suit.equals("Black") || this.suit.equals("Black")) {
             if (getRankIndex(this.rank) > getRankIndex(card.rank)) {
                 return 1;
             } else {
@@ -29,8 +29,6 @@ public class Card implements Comparable<Card> {
         else {
             return currentSuitIndex > suitIndexToCompare ? 1 : -1;
         }
-
-
     }
 
     private static Integer getSuitIndex(String suit) {
