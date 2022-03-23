@@ -3,21 +3,21 @@ package FourthTask;
 import java.util.ArrayList;
 
 abstract class AbstractFileSystemNode implements FileSystemNode {
-    String name;
-    String parent;
-    String path;
+    String parent = "";
+    String name = "";
+    String path = "";
 
 
     public AbstractFileSystemNode(String name){
         this.name = name;
     }
-//    public AbstractFileSystemNode(String name, Object ... v) {
-//        this.name = name;
-//        for (int i = 0; i < v.length; i++) {
-//            Object child = v[i];
-//            this.children.add(child);
-//        }
-//    }
+
+    public void changePath(String newPath) {
+        this.path = newPath;
+    }
+    public void changeParent(String newParent) {
+        this.parent = newParent;
+    }
 
 
     @Override

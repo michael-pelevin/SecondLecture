@@ -5,24 +5,17 @@ public class FourthTask {
 
         //создание корня файловой системы
         Folder root = new Folder("root");
-        System.out.println(root.returnName());
-        System.out.println(root.returnParent());
-        System.out.println(root.returnPath());
 
         //создание некоторых папок и файлов
-        File file1 = new File("file1.txt"); // folder1/file1.txt
-        File file2 = new File("file1.exe");
+        File file1 = new File("file1.txt");
+        File file2 = new File("file2.exe");
         File file3 = new File("file3.exe");
         Folder folder1 = new Folder("folder1", file1, file2);
-        Folder folder2 = new Folder("folder2", file3);
+        Folder folder2 = new Folder("folder2", folder1, file3);
 
         //добавление в верхние каталоги системы
-        folder2.addChildren(folder1);
-        root.addChildren(folder2); // root/folder1
-        System.out.println(folder2.path+ "  par "+ folder2.parent);
-        System.out.println(folder1.path+ "  par "+ folder1.parent);
-        System.out.println(file3.path+ "  par "+ file3.parent);
-        System.out.println(file1.path+ "  par "+ file1.parent);
+        root.addChildren(folder2);
+
 
         //отображение содержимого папки
         System.out.println(folder1.showChildren());
@@ -33,9 +26,25 @@ public class FourthTask {
         //расширение файла
         System.out.println(file1.extention());
 
-        //название файла/папки
+        //вывод названия, пути и родителя файла/папки
+        System.out.println("---------");
         System.out.println(file1.returnName());
         System.out.println(folder1.returnName());
+        System.out.println("---------");
+        System.out.println(file1.returnPath());
+        System.out.println(folder1.returnPath());
+        System.out.println("---------");
+        System.out.println(file1.returnParent());
+        System.out.println(folder1.returnParent());
+        System.out.println("---------");
+        System.out.println(file2.returnName());
+        System.out.println(folder2.returnName());
+        System.out.println("---------");
+        System.out.println(file2.returnPath());
+        System.out.println(folder2.returnPath());
+        System.out.println("---------");
+        System.out.println(file2.returnParent());
+        System.out.println(folder2.returnParent());
 
     }
 }

@@ -3,16 +3,17 @@ package FourthTask;
 import java.util.ArrayList;
 
 public class Folder extends AbstractFileSystemNode{
-    String name;
-    String parent;
-    String path;
+    String parent = "";
+    String name = "";
+    String path = "";
     ArrayList<Object> children = new ArrayList<>();
 
     public Folder(String name) {
         super(name);
         this.name = name;
         this.parent = "";
-        this.path = "/";
+        this.path = name;
+        this.changePath(name);
     }
 
     public Folder(String name, Object... v) {
@@ -20,19 +21,25 @@ public class Folder extends AbstractFileSystemNode{
         this.name = name;
         this.path =  name;
         this.parent = "";
+        this.changePath(name);
+
 
         for (int i = 0; i < v.length; i++) {
             Object child = v[i];
 
             if (child instanceof File) {
-                ((File) child).path = name + "/" + ((File) child).path;
+                ((File) child).path = this.name + "/" + ((File) child).path;
+                ((File) child).changePath( ((File) child).path);
                 ((File) child).parent = this.name;
+                ((File) child).changeParent(this.name);
             }
             if (child instanceof Folder) {
-                ((Folder) child).parent = name;
-                ((Folder) child).path = name + "/" + ((Folder) child).path;
+                ((Folder) child).parent = this.name;
+                ((Folder) child).changeParent(name);
+                ((Folder) child).path = ((Folder) child).parent + "/" + ((Folder) child).path;
+                ((Folder) child).changePath(((Folder) child).path);
                 if (((Folder) child).children.size() != 0) {
-                    changePaths(((Folder) child).children, ((Folder) child).parent);
+                    changePaths(((Folder) child).children, ((Folder) child).path);
                 }
             }
             this.children.add(child);
@@ -46,12 +53,14 @@ public class Folder extends AbstractFileSystemNode{
             Object child = v.get(i);
 
             if (child instanceof File) {
-                ((File) child).path = parent + "/" + ((File) child).path;
+                ((File) child).path = parent + "/" + ((File) child).name;
+                ((File) child).changePath(((File) child).path);
             }
             if (child instanceof Folder) {
-                ((Folder) child).path = parent + "/" + ((Folder) child).path;
+                ((Folder) child).path = parent + "/" + ((Folder) child).name;
+                ((Folder) child).changePath(((Folder) child).path);
                 if (((Folder) child).children.size() != 0) {
-                    changePaths(((Folder) child).children, ((Folder) child).parent);
+                    changePaths(((Folder) child).children, ((Folder) child).path);
                 }
             }
         }
@@ -66,14 +75,19 @@ public class Folder extends AbstractFileSystemNode{
             Object child = v[i];
 
             if (child instanceof File) {
-                ((File) child).path = this.name+ "/" +((File) child).path;
+                ((File) child).path = name + "/" + ((File) child).name;
+                ((File) child).changePath(((File) child).path);
                 ((File) child).parent = this.name;
+                ((File) child).changeParent(this.name);
             }
             if (child instanceof Folder) {
-                ((Folder) child).path = this.name + "/" + ((Folder) child).path + "/";
+
+                ((Folder) child).path = this.name + "/" + ((Folder) child).path;
+                ((Folder) child).changePath(((Folder) child).path);
                 ((Folder) child).parent = this.name;
+                ((Folder) child).changeParent(this.name);
                 if (((Folder) child).children.size() != 0) {
-                    changePaths(((Folder) child).children, ((Folder) child).parent);
+                    changePaths(((Folder) child).children, ((Folder) child).path);
                 }
             }
             this.children.add(child);

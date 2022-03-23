@@ -3,9 +3,9 @@ package FourthTask;
 import java.util.ArrayList;
 
 public class File extends AbstractFileSystemNode{
-    String parent;
-    String name;
-    String path;
+    String parent = "";
+    String name = "";
+    String path = "";
 
     public File(String name){
         super(name);
@@ -13,6 +13,7 @@ public class File extends AbstractFileSystemNode{
             this.name = name;
             this.path = name;
             this.parent = "";
+            this.changePath(name);
         }
         else {
             System.out.print("Wrong file name. File not created.");
