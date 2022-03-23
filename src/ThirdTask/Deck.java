@@ -40,14 +40,17 @@ public class Deck{
 
     }
 
+    //создание колоды с джокерами
     static Deck createWithJokers() {
         return new Deck(true);
     }
 
+    //создание колоды без джокеров
     static Deck createWithoutJokers() {
         return new Deck(false);
     }
 
+    //вывод случайной карты из колоды
     static String randomCard() {
         Random rand = new Random();
         int cardIndex = rand.nextInt(deck.size());
@@ -55,12 +58,14 @@ public class Deck{
         return randomCard;
     }
 
+    //перетасовка колоды
     static List mixDeck() {
         Collections.shuffle(deck);
         return deck;
     }
 
 
+    //извлечение карты из колоды
     static String ejectingTheCard(String Card) {
         //если карта корректна, то проверяем наличие ее в колоде, затем удаляем ее из колоды
         if (checkCard(Card)) {
@@ -77,6 +82,7 @@ public class Deck{
         return Card + "\n";
     }
 
+    //возврат карты в колоду
     static String returnTheCard(String Card) {
         if (checkCard(Card)) {
             Integer cardIndex = deck.indexOf(Card);
@@ -89,6 +95,7 @@ public class Deck{
         return Card + "\n";
     }
 
+    //проверка колоды на пустоту
     static Boolean checkForEmpty() {
         if (deck.size() == 0) {
             return true;
@@ -110,6 +117,7 @@ public class Deck{
         return result;
     }
 
+    //раздача всех кард из колоды
     static Boolean ejectingAllCards() {
         Boolean res = false;
         if (deck.isEmpty()) {

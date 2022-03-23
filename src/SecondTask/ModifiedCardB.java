@@ -54,7 +54,7 @@ public class ModifiedCardB extends CardB {
         }
     }
 
-    // текущая карта сильнее static
+    // текущая карта сильнее (static) сравнение двух карт
     public static Integer isStrongerStat(ModifiedCardB firstCard, ModifiedCardB cardToCompare){
         Integer currentSuitIndex = getSuitIndex(firstCard.suit);
         Integer suitIndexToCompare = getSuitIndex(cardToCompare.suit);
@@ -69,6 +69,7 @@ public class ModifiedCardB extends CardB {
         }
     }
 
+    //получение индекса масти текущей карты
     private static Integer getSuitIndex(String suit){
         for (int i = 0; i < suits.length; i++) {
             if (suits[i] == suit) {
@@ -78,11 +79,13 @@ public class ModifiedCardB extends CardB {
         return -1; //элемент не найден
     }
 
+    //получение хеш-кода текущей карты
     @Override
     public int hashCode() {
         return 31 * rank + suit.hashCode();
     }
 
+    //сравнение текущей карты с новой
     @Override
     public boolean equals (Object obj) {
         if (!(obj instanceof ModifiedCardB)){

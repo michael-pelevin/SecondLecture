@@ -14,6 +14,7 @@ public class Card implements Comparable<Card> {
     }
 
 
+    //сравнение карт
     public int compareTo(Card card) {
         Integer currentSuitIndex = getSuitIndex(this.suit);
         Integer suitIndexToCompare = getSuitIndex(card.suit);
@@ -31,6 +32,7 @@ public class Card implements Comparable<Card> {
         }
     }
 
+    //получение индекса масти карты
     private static Integer getSuitIndex(String suit) {
         for (int i = 0; i < suits.length; i++) {
             if (suits[i].equals(suit)) {
@@ -40,6 +42,7 @@ public class Card implements Comparable<Card> {
         return -1; //элемент не найден
     }
 
+    //получение индекса достоинства карты
     private static Integer getRankIndex(String rank) {
         for (int i = 0; i < ranks.length; i++) {
             if (ranks[i].equals(rank)) {

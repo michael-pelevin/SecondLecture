@@ -2,6 +2,9 @@ package SecondTask;
 
 public class SecondTask {
     public static void main(String[] args) {
+        /*достоинства карт ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace", "Joker"]
+        для ссоздания карты нужно ввести индекс нужного достоинства
+        */
         ModifiedCardB card1 = new ModifiedCardB();
         System.out.printf("Check %s\n", card1.checkCard());
         System.out.printf("Check %s\n", card1.checkCard());

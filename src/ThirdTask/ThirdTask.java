@@ -6,7 +6,9 @@ import java.util.List;
 
 public class ThirdTask {
     public static void main(String[] args) {
+        //создание колоды
         Deck.createWithoutJokers();
+        //действия с колодой
         System.out.printf("card %s\n", Deck.ejectingTheCard("2 hearts"));
         System.out.printf("card %s\n", Deck.ejectingTheCard("3 hearts"));
         System.out.printf("ret card %s\n", Deck.returnTheCard("2 hearts"));
@@ -14,41 +16,33 @@ public class ThirdTask {
         System.out.printf("ret card %s\n", Deck.returnTheCard("3 hearts"));
         System.out.print(Deck.showDeck());
 
-        System.out.print("------");
-
+        //перемешивание карт в колоде
         Deck.mixDeck();
 
-        System.out.print("------");
-
+        //приведение карт в колоде к нужному для сортировки виду
         List<Card> cards = new ArrayList<>();
+        System.out.println("------");
+        System.out.println("Mixed");
+        System.out.println("------");
         for (String card: Deck.deck){
-            System.out.print(card+"\n");
+            System.out.println(card);
             String rank = card.split(" ")[0];
             String suit = card.split(" ")[1];
             cards.add(new Card(suit, rank));
         }
 
-//        System.out.print(cards);
-        System.out.print("\n");
-
+        //сортировка карт
         Collections.sort(cards);
 
-        System.out.print("Sorted\n");
+        //вывод отсортированной колоды
+        System.out.println("------");
+        System.out.println("Sorted");
+        System.out.println("------");
         for(Card card : cards){
             System.out.println(card.rank + " "
                     + card.suit);
         }
 
-
-//        System.out.print(Deck.showDeck());
-//
-//        Deck.ejectingAllCards();
-//
-//        System.out.printf("random card %s\n", Deck.deck);
-//
-//        System.out.printf("check for empty %s\n", Deck.checkForEmpty());
-//
-//        System.out.print(Deck.showDeck());
 
     }
 }
