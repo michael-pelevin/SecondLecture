@@ -2,13 +2,13 @@ package FourthTask;
 
 import java.util.ArrayList;
 
-public class File{
+public class File extends AbstractFileSystemNode{
     String parent;
     String name;
     String path;
-    ArrayList<Object> children = new ArrayList<>();
 
     public File(String name){
+        super(name);
         if(name.split("\\.").length == 2){
             this.name = name;
             this.path = name;
@@ -32,7 +32,7 @@ public class File{
     }
 
     //вывод имени файла
-    public String returnName(){
-        return this.name;
-    }
+//    public String returnName(){
+//        return this.name;
+//    }
 }

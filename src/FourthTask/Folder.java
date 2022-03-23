@@ -2,19 +2,21 @@ package FourthTask;
 
 import java.util.ArrayList;
 
-public class Folder{
+public class Folder extends AbstractFileSystemNode{
     String name;
     String parent;
     String path;
     ArrayList<Object> children = new ArrayList<>();
 
     public Folder(String name) {
+        super(name);
         this.name = name;
         this.parent = "";
         this.path = "/";
     }
 
     public Folder(String name, Object... v) {
+        super(name);
         this.name = name;
         this.path =  name;
         this.parent = "";
@@ -104,8 +106,8 @@ public class Folder{
     }
 
     //имя текущей папки
-    public String returnName(){
-        return this.name;
-    }
+//    public String returnName(){
+//        return this.name;
+//    }
 
 }

@@ -5,6 +5,9 @@ public class FourthTask {
 
         //создание корня файловой системы
         Folder root = new Folder("root");
+        System.out.println(root.returnName());
+        System.out.println(root.returnParent());
+        System.out.println(root.returnPath());
 
         //создание некоторых папок и файлов
         File file1 = new File("file1.txt"); // folder1/file1.txt

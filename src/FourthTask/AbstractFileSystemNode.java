@@ -1,15 +1,16 @@
 package FourthTask;
 
 import java.util.ArrayList;
-import java.util.List;
 
 abstract class AbstractFileSystemNode implements FileSystemNode {
     String name;
     String parent;
-    ArrayList<Object> children = new ArrayList<>();
     String path;
 
 
+    public AbstractFileSystemNode(String name){
+        this.name = name;
+    }
 //    public AbstractFileSystemNode(String name, Object ... v) {
 //        this.name = name;
 //        for (int i = 0; i < v.length; i++) {
